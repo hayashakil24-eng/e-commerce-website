@@ -1,0 +1,52 @@
+/* === NEW ARRIVALS PAGE STYLES === */
+
+
+
+/* -- HERO SECTION (Premium Header) -- */
+.na-hero {
+    position: relative;
+    height: 40vh;
+    /* Minimal height for elegance */
+    min-height: 300px;
+    background-color: #F8F8F8;
+    /* Hardcoded from original var */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0;
+    /* Removing margin to sit flush with content */
+    overflow: hidden;
+}
+
+.na-hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin: 0;
+    text-transform: uppercase;
+    color: #000000;
+    /* Hardcoded from original var */
+    z-index: 1;
+}
+
+.na-hero p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #666;
+    z-index: 1;
+}
+
+
+/* Responsive adjustments for Hero */
+@media (max-width: 768px) {
+    .na-hero h1 {
+        font-size: 2.2rem;
+    }
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .settings-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .settings-card h3 {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            text-align: left;
+            font-size: 1.2rem;
+        }
+
+        .settings-card h3::after {
+            display: none;
+        }
+
+        .form-check {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            justify-content: space-between;
+        }
+
+        .form-check label {
+            margin-bottom: 0;
+            cursor: pointer;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: var(--success-color);
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(24px);
+        }
+
+        @media (max-width: 768px) {
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="admin-layout">
+        <div class="admin-overlay"></div>
+        <aside class="admin-sidebar">
+            <i class="fas fa-times close-icon"></i>
+            <h3>Admin Panel</h3>
+            <ul>
+                <li><a href="admin-dashboard.html"><i class="fas fa-th-large"></i> <span>Dashboard</span></a></li>
+                <li><a href="products.html"><i class="fas fa-box"></i> <span>Products</span></a></li>
+                <li><a href="orders.html"><i class="fas fa-shopping-bag"></i> <span>Orders</span></a></li>
+                <li><a href="customers.html"><i class="fas fa-users"></i> <span>Customers</span></a></li>
+                <li><a href="settings.html" class="active"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+                <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-main-content">
+            <div class="admin-top-bar">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <button class="admin-mobile-toggle" style="display: none;"><i class="fas fa-bars"></i></button>
+                    <h2>Settings</h2>
+                </div>
+                <div class="admin-user-info">
+                    <span>Admin User</span>
+                    <div class="avatar">A</div>
+                </div>
+            </div>
+
+            <div class="settings-grid">
+
+                <div class="settings-card">
+                    <h3>Payment Settings</h3>
+                    <div class="form-check">
+                        <label for="cod-payment">Cash on Delivery (COD)</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="cod-payment" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label for="online-payment">Online Payment (Stripe/PayPal)</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="online-payment" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>Currency</label>
+                        <select>
+                            <option>USD ($)</option>
+                            <option>EUR (€)</option>
+                            <option>GBP (£)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Shipping Configuration</h3>
+                    <div class="form-group">
+                        <label>Standard Shipping Cost ($)</label>
+                        <input type="number" value="10.00">
+                    </div>
+                    <div class="form-group">
+                        <label>Free Shipping Threshold ($)</label>
+                        <input type="number" value="100.00">
+                    </div>
+                    <div class="form-check">
+                        <label for="intl-shipping">Enable International Shipping</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="intl-shipping">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-card">
+                    <h3>Coupon Management</h3>
+                    <div class="admin-table-container" style="padding: 0; box-shadow: none;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Code</th>
+                                    <th>Discount</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>WELCOME10</td>
+                                    <td>10%</td>
+                                    <td><span class="status-badge delivered">Active</span></td>
+                                    <td><button class="btn-delete btn-sm" style="padding: 5px;"><i
+                                                class="fas fa-trash"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>SUMMER50</td>
+                                    <td>50%</td>
+                                    <td><span class="status-badge cancelled">Expired</span></td>
+                                    <td><button class="btn-delete btn-sm" style="padding: 5px;"><i
+                                                class="fas fa-trash"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-sm btn-outline" style="margin-top: 15px;">+ Create New Coupon</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

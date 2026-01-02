@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products - Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+        <div class="admin-overlay"></div>
+        <aside class="admin-sidebar">
+            <i class="fas fa-times close-icon"></i>
+            <h3>Admin Panel</h3>
+            <ul>
+                <li><a href="admin-dashboard.html"><i class="fas fa-th-large"></i> <span>Dashboard</span></a></li>
+                <li><a href="products.html" class="active"><i class="fas fa-box"></i> <span>Products</span></a></li>
+                <li><a href="orders.html"><i class="fas fa-shopping-bag"></i> <span>Orders</span></a></li>
+                <li><a href="customers.html"><i class="fas fa-users"></i> <span>Customers</span></a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> <span>Settings</span></a></li>
+                <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-main-content">
+            <div class="admin-top-bar">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <button class="admin-mobile-toggle" style="display: none;"><i class="fas fa-bars"></i></button>
+                    <h2>Products Management</h2>
+                </div>
+                <div class="admin-user-info">
+                    <span>Admin User</span>
+                    <div class="avatar">A</div>
+                </div>
+            </div>
+
+            <div class="admin-table-container">
+                <div class="admin-actions">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search products...">
+                    </div>
+                    <button class="btn btn-sm"><i class="fas fa-plus"></i> Add New Product</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="../images/placeholder-product1.jpg" alt="Product"
+                                    style="width: 50px; height: 50px; border-radius: 4px; object-fit: cover;"></td>
+                            <td>Stylish T-Shirt</td>
+                            <td>Men</td>
+                            <td>$45.00</td>
+                            <td>120</td>
+                            <td><span class="status-badge delivered">Active</span></td>
+                            <td>
+                                <button class="table-action-btn btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="table-action-btn btn-delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="../images/placeholder-product2.jpg" alt="Product"
+                                    style="width: 50px; height: 50px; border-radius: 4px; object-fit: cover;"></td>
+                            <td>Classic Jeans</td>
+                            <td>Men</td>
+                            <td>$75.00</td>
+                            <td>85</td>
+                            <td><span class="status-badge delivered">Active</span></td>
+                            <td>
+                                <button class="table-action-btn btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="table-action-btn btn-delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="../images/placeholder-product5.jpg" alt="Product"
+                                    style="width: 50px; height: 50px; border-radius: 4px; object-fit: cover;"></td>
+                            <td>Floral Dress</td>
+                            <td>Women</td>
+                            <td>$90.00</td>
+                            <td>45</td>
+                            <td><span class="status-badge pending">Low Stock</span></td>
+                            <td>
+                                <button class="table-action-btn btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="table-action-btn btn-delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="../images/placeholder-product9.jpg" alt="Product"
+                                    style="width: 50px; height: 50px; border-radius: 4px; object-fit: cover;"></td>
+                            <td>Canvas Bag</td>
+                            <td>Accessories</td>
+                            <td>$35.00</td>
+                            <td>0</td>
+                            <td><span class="status-badge cancelled">Out of Stock</span></td>
+                            <td>
+                                <button class="table-action-btn btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="table-action-btn btn-delete"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

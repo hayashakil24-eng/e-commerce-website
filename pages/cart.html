@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - E-Commerce Clothing Store</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .cart-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 30px;
+        }
+
+        .cart-table th {
+            padding: 20px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            background: #f9f9f9;
+        }
+
+        .cart-table td {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
+        }
+
+        .cart-product {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cart-product img {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+        }
+
+        .cart-summary {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .cart-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        @media(max-width: 900px) {
+            .cart-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header (Same as index) -->
+    <header class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        <h1>E-Store</h1>
+                    </a>
+                </div>
+                <nav>
+                    <ul class="menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="shop.html?filter=new">New Arrivals</a></li>
+                        <li><a href="#">Sale</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-icons text-right">
+                    <i class="fas fa-search search-icon"></i>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">2</span>
+                    </a>
+                    <a href="login.html"><i class="fas fa-user user-icon"></i></a>
+                    <div class="hamburger-menu-icon" style="display: none;">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Overlay -->
+            <div class="hamburger-menu-overlay"></div>
+
+            <div class="hamburger-menu">
+                <div class="menu-header">
+                    <h2>Menu</h2>
+                    <i class="fas fa-times close-icon"></i>
+                </div>
+                <ul class="mobile-nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop.html?filter=new">New Arrivals</a></li>
+                    <li><a href="shop.html?filter=sale">Sale</a></li>
+                    <li><a href="dashboard.html">My Account</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="cart-page-premium">
+        <div class="container">
+            <div class="cart-grid-layout">
+
+                <!-- LEFT COLUMN: Cart Items -->
+                <div class="cart-items-section">
+                    <div class="cart-header">
+                        <h2>Shopping Cart</h2>
+                        <span class="item-count">2 items</span>
+                    </div>
+
+                    <div class="cart-list">
+                        <!-- Item 1 -->
+                        <div class="cart-item-card">
+                            <div class="cart-item-image">
+                                <img src="../img/women jackets.jpg" alt="Women Jacket">
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="item-info-top">
+                                    <h3 class="product-name"><a href="#">Women Jacket</a></h3>
+                                    <span class="item-price">$220.00</span>
+                                </div>
+                                <div class="item-variants">
+                                    <span>Size: M</span>
+                                    <span class="separator">•</span>
+                                    <span>Color: Black</span>
+                                </div>
+                                <div class="item-actions-row">
+                                    <div class="qty-selector">
+                                        <button class="qty-btn minus"><i class="fas fa-minus"></i></button>
+                                        <input type="text" value="1" readonly class="qty-input">
+                                        <button class="qty-btn plus"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="remove-btn"><i class="far fa-trash-alt"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="cart-item-card">
+                            <div class="cart-item-image">
+                                <img src="../img/men jeans.jpg" alt="Men Jeans">
+                            </div>
+                            <div class="cart-item-details">
+                                <div class="item-info-top">
+                                    <h3 class="product-name"><a href="#">Classic Men Jeans</a></h3>
+                                    <span class="item-price">$160.00</span>
+                                </div>
+                                <div class="item-variants">
+                                    <span>Size: 32</span>
+                                    <span class="separator">•</span>
+                                    <span>Color: Blue</span>
+                                </div>
+                                <div class="item-actions-row">
+                                    <div class="qty-selector">
+                                        <button class="qty-btn minus"><i class="fas fa-minus"></i></button>
+                                        <input type="text" value="1" readonly class="qty-input">
+                                        <button class="qty-btn plus"><i class="fas fa-plus"></i></button>
+                                    </div>
+                                    <button class="remove-btn"><i class="far fa-trash-alt"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="shop.html" class="continue-shopping-btn">
+                        <i class="fas fa-arrow-left"></i> Continue Shopping
+                    </a>
+                </div>
+
+                <!-- RIGHT COLUMN: Summary -->
+                <div class="cart-summary-section">
+                    <div class="summary-card">
+                        <h3>Order Summary</h3>
+
+                        <div class="summary-line">
+                            <span>Subtotal</span>
+                            <span>$380.00</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Shipping</span>
+                            <span>$10.00</span>
+                        </div>
+                        <div class="summary-line">
+                            <span>Tax</span>
+                            <span>$0.00</span>
+                        </div>
+
+                        <div class="summary-divider"></div>
+
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span>$390.00</span>
+                        </div>
+
+                        <!-- Promo Code (Optional) -->
+                        <div class="promo-code-input">
+                            <input type="text" placeholder="Promo code">
+                            <button>Apply</button>
+                        </div>
+
+                        <a href="checkout.html" class="checkout-btn">PROCEED TO CHECKOUT</a>
+
+                        <div class="secure-checkout-text">
+                            <i class="fas fa-lock"></i> Secure Checkout
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Consistent) -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h2>E-Store</h2>
+                    <p>Your destination for stylish and affordable clothing.</p>
+                </div>
+                <!-- ... Footer cols ... -->
+                <div class="footer-bottom">
+                    <p>&copy; 2025 E-Store. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | E-Store</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="checkout-body">
+
+    <!-- Minimalist Checkout Header -->
+    <header class="checkout-header">
+        <div class="container">
+            <div class="checkout-logo">
+                <a href="../index.html">E-Store</a>
+            </div>
+            <div class="checkout-secure-badge">
+                <i class="fas fa-lock"></i> Secure Checkout
+            </div>
+        </div>
+    </header>
+
+    <main class="checkout-main">
+        <div class="container">
+
+            <!-- Breadcrumbs -->
+            <div class="breadcrumbs" style="margin-bottom: 20px; font-size: 0.85rem; color: #888;">
+                <a href="../index.html">Home</a> <span style="margin: 0 5px;">/</span>
+                <a href="cart.html">Cart</a> <span style="margin: 0 5px;">/</span>
+                <span style="color: #333;">Checkout</span>
+            </div>
+
+            <!-- Progress Steps (Simplified) -->
+            <div class="checkout-progress">
+                <div class="step-item completed">
+                    <div class="step-number"><i class="fas fa-check"></i></div>
+                    <span>Cart</span>
+                </div>
+                <div class="step-item active">
+                    <div class="step-number">2</div>
+                    <span>Checkout</span>
+                </div>
+                <!-- Payment Step Removed (Merged) -->
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <span>Confirm</span>
+                </div>
+            </div>
+
+            <br><br>
+
+            <form action="order-confirmation.html" method="GET" id="checkout-form">
+                <div class="checkout-grid">
+
+                    <!-- LEFT COLUMN: Forms -->
+                    <div class="checkout-left">
+
+                        <!-- 1. Contact Info -->
+                        <div class="checkout-section">
+                            <h2>1. Contact Information</h2>
+                            <div class="input-group">
+                                <label class="input-label" for="email">Email Address</label>
+                                <input type="email" id="email" class="form-input" placeholder="you@example.com" required
+                                    style="margin-bottom: 0;">
+
+                                <!-- Login Link (Left Aligned) -->
+                                <div style="text-align: left; margin-top: 10px; margin-bottom: 10px;">
+                                    <a href="login.html" style="font-size: 14px; color: #555; text-decoration: none;">
+                                        Already have an account? <span
+                                            style="font-weight: 600; color: var(--primary-color); text-decoration: underline;">Login</span>
+                                    </a>
+                                </div>
+
+                                <!-- Newsletter Checkbox -->
+                                <label
+                                    style="display: flex; align-items: center; gap: 8px; text-transform: none; font-weight: 400; color: #666; cursor: pointer; font-size: 0.85rem;">
+                                    <input type="checkbox" style="width: auto; margin: 0;"> Sign me up for news and
+                                    offers
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 2. Shipping Address -->
+                        <div class="checkout-section">
+                            <h2>2. Shipping Address</h2>
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label class="input-label" for="firstname">First Name</label>
+                                    <input type="text" id="firstname" class="form-input" required>
+                                </div>
+                                <div class="input-group">
+                                    <label class="input-label" for="lastname">Last Name</label>
+                                    <input type="text" id="lastname" class="form-input" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label class="input-label" for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="+1 (555) 000-0000"
+                                    required>
+                            </div>
+
+                            <div class="input-group">
+                                <label class="input-label" for="address1">Address Line 1</label>
+                                <input type="text" id="address1" class="form-input" placeholder="Street address"
+                                    required>
+                            </div>
+
+                            <div class="input-group">
+                                <label class="input-label" for="address2">Address Line 2 (Optional)</label>
+                                <input type="text" id="address2" class="form-input"
+                                    placeholder="Apartment, suite, unit, etc.">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label class="input-label" for="city">City</label>
+                                    <input type="text" id="city" class="form-input" required>
+                                </div>
+                                <div class="input-group">
+                                    <label class="input-label" for="state">State / Province</label>
+                                    <select id="state" class="form-select" required>
+                                        <option value="" disabled selected>Select State</option>
+                                        <option value="NY">New York</option>
+                                        <option value="CA">California</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="FL">Florida</option>
+                                        <!-- Add more options -->
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="input-group">
+                                    <label class="input-label" for="zip">Postal / ZIP Code</label>
+                                    <input type="text" id="zip" class="form-input" required>
+                                </div>
+                                <div class="input-group">
+                                    <label class="input-label" for="country">Country</label>
+                                    <select id="country" class="form-select" required>
+                                        <option value="US" selected>United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="AU">Australia</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label
+                                    style="display: flex; align-items: center; gap: 8px; text-transform: none; font-weight: 400; color: #666; cursor: pointer;">
+                                    <input type="checkbox" style="width: auto; margin: 0;"> Save this address for future
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 3. Shipping Method -->
+                        <div class="checkout-section">
+                            <h2>3. Shipping Method</h2>
+                            <div class="shipping-options">
+                                <label class="radio-card selected" onclick="selectRadio(this)">
+                                    <div class="radio-content">
+                                        <div class="custom-radio"></div>
+                                        <div class="method-details">
+                                            <span class="method-name">Standard Shipping</span>
+                                            <span class="method-time">3-5 Business Days</span>
+                                        </div>
+                                    </div>
+                                    <span class="method-price">Free</span>
+                                    <input type="radio" name="shipping" value="standard" checked hidden>
+                                </label>
+
+                                <label class="radio-card" onclick="selectRadio(this)">
+                                    <div class="radio-content">
+                                        <div class="custom-radio"></div>
+                                        <div class="method-details">
+                                            <span class="method-name">Express Shipping</span>
+                                            <span class="method-time">1-2 Business Days</span>
+                                        </div>
+                                    </div>
+                                    <span class="method-price">$10.00</span>
+                                    <input type="radio" name="shipping" value="express" hidden>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 4. Payment Method (Unified) -->
+                        <div class="checkout-section">
+                            <h2>4. Payment Method</h2>
+                            <div class="payment-options">
+
+                                <!-- Option 1: Credit / Debit Card -->
+                                <div class="payment-group">
+                                    <label class="radio-card selected" onclick="togglePayment('card', this)">
+                                        <div class="radio-content">
+                                            <div class="custom-radio"></div>
+                                            <div class="method-details">
+                                                <span class="method-name">Credit / Debit Card</span>
+                                                <span class="method-time">Safe money transfer using your bank
+                                                    account.</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-icons">
+                                            <i class="fab fa-cc-visa"></i>
+                                            <i class="fab fa-cc-mastercard"></i>
+                                            <i class="fab fa-cc-amex"></i>
+                                        </div>
+                                        <input type="radio" name="payment" value="card" checked hidden>
+                                    </label>
+
+                                    <!-- Conditional Card Details -->
+                                    <div id="card-details-panel" class="payment-conditional-panel active">
+                                        <div class="input-group">
+                                            <label class="input-label">Card Number</label>
+                                            <div style="position: relative;">
+                                                <input type="text" class="form-input" placeholder="0000 0000 0000 0000"
+                                                    id="card-number" maxlength="19">
+                                                <i class="fas fa-credit-card"
+                                                    style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #999;"></i>
+                                            </div>
+                                        </div>
+                                        <div class="input-group">
+                                            <label class="input-label">Cardholder Name</label>
+                                            <input type="text" class="form-input" placeholder="Name on card">
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="input-group">
+                                                <label class="input-label">Expiry Date</label>
+                                                <input type="text" class="form-input" placeholder="MM/YY" maxlength="5">
+                                            </div>
+                                            <div class="input-group">
+                                                <label class="input-label">CVV</label>
+                                                <div style="position: relative;">
+                                                    <input type="password" class="form-input" placeholder="123"
+                                                        maxlength="4">
+                                                    <i class="fas fa-question-circle"
+                                                        style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: #ccc;"
+                                                        title="3 digits on back of card"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <label
+                                            style="display: flex; align-items: center; gap: 8px; text-transform: none; font-weight: 400; color: #666; cursor: pointer; margin-top: 10px; font-size: 0.9rem;">
+                                            <input type="checkbox" style="width: auto; margin: 0;"> Save card for future
+                                            purchases
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Option 2: PayPal -->
+                                <div class="payment-group">
+                                    <label class="radio-card" onclick="togglePayment('paypal', this)">
+                                        <div class="radio-content">
+                                            <div class="custom-radio"></div>
+                                            <div class="method-details">
+                                                <span class="method-name">PayPal</span>
+                                                <span class="method-time">Pay securely with your PayPal account.</span>
+                                            </div>
+                                        </div>
+                                        <i class="fab fa-paypal" style="font-size: 1.5rem; color: #003087;"></i>
+                                        <input type="radio" name="payment" value="paypal" hidden>
+                                    </label>
+
+                                    <!-- Conditional PayPal Info -->
+                                    <div id="paypal-details-panel" class="payment-conditional-panel"
+                                        style="display: none; padding: 20px; background: #fafafa; text-align: center; border-radius: 4px; margin-top: 10px;">
+                                        <p style="margin-bottom: 15px; font-size: 0.95rem; color: #555;">You will be
+                                            redirected to PayPal to complete your payment.</p>
+                                        <button type="button" class="secondary-btn" style="min-width: 200px;">Continue
+                                            with PayPal</button>
+                                    </div>
+                                </div>
+
+                                <!-- Option 3: COD -->
+                                <div class="payment-group">
+                                    <label class="radio-card" onclick="togglePayment('cod', this)">
+                                        <div class="radio-content">
+                                            <div class="custom-radio"></div>
+                                            <div class="method-details">
+                                                <span class="method-name">Cash on Delivery</span>
+                                                <span class="method-time">Pay upon receipt</span>
+                                            </div>
+                                        </div>
+                                        <i class="fas fa-money-bill-wave" style="font-size: 1.2rem; color: #666;"></i>
+                                        <input type="radio" name="payment" value="cod" hidden>
+                                    </label>
+
+                                    <!-- Conditional COD Info -->
+                                    <div id="cod-details-panel" class="payment-conditional-panel"
+                                        style="display: none; padding: 20px; background: #fafafa; border-radius: 4px; margin-top: 10px;">
+                                        <p
+                                            style="font-size: 0.95rem; color: #555; display: flex; align-items: center; gap: 10px;">
+                                            <i class="fas fa-check-circle" style="color: #28a745;"></i> You will pay in
+                                            cash when your order is delivered to your doorstep.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Billing Same As Shipping Checkbox -->
+                            <div style="margin-top: 25px;">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" checked style="width: auto; margin: 0;">
+                                    <span>Billing address is the same as shipping address</span>
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- RIGHT COLUMN: Order Summary -->
+                    <div class="checkout-right">
+                        <div class="checkout-summary-wrapper">
+                            <div class="checkout-summary-card">
+                                <div class="summary-header">
+                                    <h3>Order Summary</h3>
+                                </div>
+
+                                <div class="summary-items">
+                                    <!-- Items will be loaded dynamically -->
+                                    <div style="text-align: center; color: #888; padding: 20px;">
+                                        <i class="fas fa-spinner fa-spin"></i> Loading...
+                                    </div>
+                                </div>
+
+                                <!-- Promo Code Link (Input removed for cleaner checkout) -->
+                                <div style="margin-bottom: 20px;">
+                                    <a href="cart.html"
+                                        style="font-size: 0.85rem; color: #555; text-decoration: underline;">Have a
+                                        promo code? Apply it in your cart</a>
+                                </div>
+
+                                <div class="cost-breakdown">
+                                    <div class="cost-row">
+                                        <span>Subtotal</span>
+                                        <span>$0.00</span>
+                                    </div>
+                                    <div class="cost-row">
+                                        <span>Shipping</span>
+                                        <span id="shipping-cost">Free</span>
+                                    </div>
+                                    <div class="cost-row">
+                                        <span>Tax (Estimated)</span>
+                                        <span>$0.00</span>
+                                    </div>
+                                    <div class="cost-row total">
+                                        <span>Total</span>
+                                        <span id="total-cost">$0.00</span>
+                                    </div>
+                                </div>
+
+                                <button type="button" class="place-order-btn" id="place-order-btn"
+                                    onclick="placeOrder()">Place Order</button>
+
+                                <div class="checkout-footer-links">
+                                    <a href="#">Return Policy</a>
+                                    <a href="#">Privacy Policy</a>
+                                    <a href="#">Terms & Conditions</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        // Simple script to handle radio selection visualization
+        function selectRadio(element) {
+            // Find parent group (works for shipping options)
+            // For Payment, we might need a broader scope or specific container
+            // This basic function finds siblings via parent
+            const group = element.parentElement.classList.contains('payment-options') ? null : element.parentElement;
+
+            if (group) {
+                group.querySelectorAll('.radio-card').forEach(el => el.classList.remove('selected'));
+                element.classList.add('selected');
+            }
+        }
+
+        function togglePayment(method, element) {
+            // Remove selected class from ALL radio cards in payment options
+            document.querySelectorAll('.payment-options .radio-card').forEach(el => el.classList.remove('selected'));
+            // Add selected to clicked one
+            element.classList.add('selected');
+
+            // Hide ALL panels
+            document.querySelectorAll('.payment-conditional-panel').forEach(panel => panel.style.display = 'none');
+            // Remove active class
+            document.querySelectorAll('.payment-conditional-panel').forEach(panel => panel.classList.remove('active'));
+
+            // Show selected panel
+            if (method === 'card') {
+                const p = document.getElementById('card-details-panel');
+                p.style.display = 'block';
+                p.classList.add('active'); // Apply animation class if exists
+            } else if (method === 'paypal') {
+                document.getElementById('paypal-details-panel').style.display = 'block';
+            } else if (method === 'cod') {
+                document.getElementById('cod-details-panel').style.display = 'block';
+            }
+        }
+
+        /* 
+           NOTE: Shipping Cost Calculation and Order Summary updates are handled by main.js 
+           based on global Cart data.
+        */
+
+        // Mock Place Order function
+        function placeOrder() {
+            const btn = document.getElementById('place-order-btn');
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                window.location.href = 'order-confirmation.html';
+            }, 2000);
+        }
+
+        // Card number formatting & Type Detection
+        const cardInput = document.getElementById('card-number');
+        if (cardInput) {
+            cardInput.addEventListener('input', function (e) {
+                let value = e.target.value.replace(/[^\d]/g, '');
+                e.target.value = value.replace(/(.{4})/g, '$1 ').trim();
+
+                const icon = this.nextElementSibling;
+                if (value.startsWith('4')) {
+                    icon.className = 'fab fa-cc-visa';
+                    icon.style.color = '#1A1F71';
+                } else if (value.startsWith('5')) {
+                    icon.className = 'fab fa-cc-mastercard';
+                    icon.style.color = '#EB001B';
+                } else if (value.startsWith('3')) {
+                    icon.className = 'fab fa-cc-amex';
+                    icon.style.color = '#006FCF';
+                } else {
+                    icon.className = 'fas fa-credit-card';
+                    icon.style.color = '#999';
+                }
+            });
+        }
+
+        // --- DIRECT CHECKOUT SUMMARY LOADER ---
+        // Acts as a failsafe or primary loader if main.js is delayed
+        document.addEventListener('DOMContentLoaded', function () {
+            loadCheckoutSummary();
+        });
+
+        function loadCheckoutSummary() {
+            // Use 'cartItems' as used elsewhere in the project
+            const cart = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const summaryItems = document.querySelector('.summary-items');
+            const summaryHeader = document.querySelector('.summary-header h3');
+
+            if (!summaryItems) return;
+
+            if (cart.length === 0) {
+                summaryItems.innerHTML = '<p style="text-align:center;color:#888;padding:30px;">Cart is empty. <br><a href="shop.html">Go Shopping</a></p>';
+                const placeBtn = document.getElementById('place-order-btn');
+                if (placeBtn) placeBtn.disabled = true;
+                return;
+            }
+
+            // Update item count
+            if (summaryHeader) {
+                summaryHeader.textContent = `Order Summary (${cart.reduce((t, i) => t + i.qty, 0)})`;
+            }
+
+            // Display items
+            let html = '';
+            let subtotal = 0;
+
+            cart.forEach(item => {
+                const qty = item.qty || 1;
+                const itemTotal = item.price * qty;
+                subtotal += itemTotal;
+
+                html += `
+                <div style="display:flex; gap:15px; padding:15px 0; border-bottom:1px solid #eee;" class="summary-item">
+                    <img src="${item.image}" alt="${item.name}" 
+                        style="width:70px;height:70px;object-fit:cover;border-radius:8px;background:#f5f5f5;">
+                    <div style="flex:1;">
+                    <h4 style="margin:0 0 8px;font-size:0.95rem;font-weight:600;">${item.name}</h4>
+                    <p style="font-size:0.85rem;color:#666;margin:0 0 5px;">
+                        Size: ${item.size} | Color: ${item.color}
+                    </p>
+                    <p style="font-weight:600;color:#333;margin:0;">
+                        $${item.price.toFixed(2)} × ${qty}
+                    </p>
+                    </div>
+                    <div style="font-weight:600;">$${itemTotal.toFixed(2)}</div>
+                </div>
+                `;
+            });
+
+            summaryItems.innerHTML = html;
+
+            // Calculate totals
+            const shipping = 10.00;
+            const tax = subtotal * 0.08;
+            const total = subtotal + shipping + tax;
+
+            // Update cost breakdown
+            const costRows = document.querySelectorAll('.cost-row');
+            if (costRows.length >= 3) {
+                // Subtotal
+                if (costRows[0].querySelector('span:last-child')) costRows[0].querySelector('span:last-child').textContent = `$${subtotal.toFixed(2)}`;
+                // Shipping
+                if (costRows[1].querySelector('span:last-child')) costRows[1].querySelector('span:last-child').textContent = `$${shipping.toFixed(2)}`;
+                // Tax
+                if (costRows[2].querySelector('span:last-child')) costRows[2].querySelector('span:last-child').textContent = `$${tax.toFixed(2)}`;
+            }
+
+            const totalElement = document.getElementById('total-cost');
+            if (totalElement) {
+                totalElement.textContent = `$${total.toFixed(2)}`;
+            }
+        }
+    </script>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

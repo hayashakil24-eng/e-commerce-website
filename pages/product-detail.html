@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - E-Commerce Clothing Store</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        <h1>E-Store</h1>
+                    </a>
+                </div>
+                <nav>
+                    <ul class="menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="new-arrival.html">New Arrivals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-icons">
+                    <i class="fas fa-search search-icon"></i>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">2</span>
+                    </a>
+                    <a href="login.html"><i class="fas fa-user user-icon"></i></a>
+                    <i class="fas fa-bars hamburger-icon"></i>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div class="hamburger-menu-overlay"></div>
+
+        <div class="hamburger-menu">
+            <div class="menu-header">
+                <h2>Menu</h2>
+                <i class="fas fa-times close-icon"></i>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="new-arrival.html">New Arrivals</a></li>
+                <li><a href="dashboard.html">My Account</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="product-detail-page">
+        <!-- Breadcrumbs -->
+        <div class="breadcrumbs">
+            <div class="container">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop.html?cat=men">Men</a></li>
+                    <li>Stylish T-Shirt</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="product-display" style="padding-top: 0;">
+            <div class="container">
+                <div class="product-detail-container">
+                    <!-- Left: Gallery -->
+                    <div class="product-images">
+                        <div class="product-gallery-main">
+                            <img src="../images/placeholder-product1.jpg" alt="Main Product Image">
+                        </div>
+                        <div class="product-thumbnails">
+                            <img src="../images/placeholder-product1.jpg" alt="Thumbnail 1" class="thumbnail active">
+                            <img src="../images/placeholder-product2.jpg" alt="Thumbnail 2" class="thumbnail">
+                            <img src="../images/placeholder-product3.jpg" alt="Thumbnail 3" class="thumbnail">
+                            <img src="../images/placeholder-product4.jpg" alt="Thumbnail 4" class="thumbnail">
+                        </div>
+                    </div>
+
+                    <!-- Right: Info -->
+                    <div class="product-detail-info">
+                        <h1>Stylish T-Shirt</h1>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="review-count">(120 Reviews)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="original-price">$55.00</span>
+                            $45.00
+                        </div>
+                        <p style="margin-bottom: 30px; color: var(--text-secondary); line-height: 1.8;">
+                            A comfortable and stylish t-shirt made from 100% premium cotton. Perfect for everyday wear,
+                            offering a soft feel and a classic fit that looks great on everyone. Available in multiple
+                            colors to match your style.
+                        </p>
+
+                        <div class="detail-options">
+                            <div class="option-group">
+                                <label>Size:</label>
+                                <div class="size-selector">
+                                    <button>S</button>
+                                    <button>M</button>
+                                    <button class="active">L</button>
+                                    <button>XL</button>
+                                </div>
+                            </div>
+                            <div class="option-group">
+                                <label>Color:</label>
+                                <div class="color-selector">
+                                    <span class="color-option selected" style="background-color: #1a1a1a;"
+                                        title="Black"></span>
+                                    <span class="color-option" style="background-color: #8b7355;" title="Taupe"></span>
+                                    <span class="color-option" style="background-color: #d4a574;" title="Gold"></span>
+                                </div>
+                            </div>
+                            <div class="option-group">
+                                <label>Quantity:</label>
+                                <div class="quantity-control">
+                                    <button class="decrement-btn">-</button>
+                                    <input type="number" value="1" min="1" readonly>
+                                    <button class="increment-btn">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; gap: 20px;">
+                            <button class="btn-add-to-cart"
+                                style="flex: 2; margin-top: 0; opacity: 1; transform: none;">Add to Cart</button>
+                            <button class="btn btn-outline" style="flex: 1;"><i class="far fa-heart"></i>
+                                Wishlist</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-tabs-section" style="padding-top: 40px;">
+            <div class="container">
+                <div class="auth-tabs" style="justify-content: flex-start; gap: 40px; margin-bottom: 40px;">
+                    <button class="tab active" data-tab="desc">Description</button>
+                    <button class="tab" data-tab="specs">Shipping Info</button>
+                    <button class="tab" data-tab="reviews">Reviews (120)</button>
+                </div>
+
+                <div id="desc-tab" class="auth-form active" style="animation: none;">
+                    <h3>Product Description</h3>
+                    <p style="margin-bottom: 20px;">This stylish t-shirt is crafted from premium, breathable cotton for
+                        maximum comfort. Its versatile design makes it suitable for casual outings, workouts, or
+                        layering. The classic fit ensures it complements any body type, while the rich color options add
+                        a touch of personality to your wardrobe. Easy to care for and durable, this t-shirt is a
+                        must-have for any modern wardrobe.</p>
+                    <ul style="list-style: inside disc; color: var(--text-secondary);">
+                        <li>100% Premium Cotton</li>
+                        <li>Soft and Breathable Fabric</li>
+                        <li>Classic Fit</li>
+                        <li>Available in multiple colors</li>
+                    </ul>
+                </div>
+
+                <div id="specs-tab" class="auth-form" style="animation: none;">
+                    <h3>Shipping Information</h3>
+                    <p>We offer free shipping on all orders over $50. Standard shipping takes 3-5 business days.</p>
+                    <p>Returns are accepted within 30 days of purchase.</p>
+                </div>
+
+                <div id="reviews-tab" class="auth-form" style="animation: none;">
+                    <h3>Customer Reviews</h3>
+                    <div class="review"
+                        style="margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid var(--border-color);">
+                        <div class="rating" style="font-size: 0.8rem; margin-bottom: 5px;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <h4 style="margin-bottom: 10px;">Amazing Quality!</h4>
+                        <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 15px;">"This is by
+                            far the best t-shirt I own. The quality is superb and it fits perfectly. Highly recommend!"
+                        </p>
+                        <p style="font-weight: 600;">- John Doe</p>
+                    </div>
+                    <div class="review">
+                        <div class="rating" style="font-size: 0.8rem; margin-bottom: 5px;">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="far fa-star"></i>
+                        </div>
+                        <h4 style="margin-bottom: 10px;">Good value</h4>
+                        <p style="font-style: italic; color: var(--text-secondary); margin-bottom: 15px;">"Fits well and
+                            feels nice. Shipping was fast too."</p>
+                        <p style="font-weight: 600;">- Sarah Smith</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="related-products">
+            <div class="container">
+                <h2>You May Also Like</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <div class="product-image-container">
+                            <img src="../images/placeholder-product2.jpg" alt="Related Product">
+                            <i class="fas fa-eye quick-view-icon"></i>
+                        </div>
+                        <div class="product-info">
+                            <h3>Classic Jeans</h3>
+                            <p class="price">$75.00</p>
+                            <button class="btn-add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <!-- Reuse other cards... -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="../index.html">
+                        <h2>E-Store</h2>
+                    </a>
+                    <p>Your destination for stylish and affordable clothing.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- ... Footer content reuse ... -->
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 E-Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Inline script to handle tab switching for this page specifically since main.js might need selector tweaking
+        const tabs = document.querySelectorAll('.product-tabs-section .tab');
+        const contents = document.querySelectorAll('.product-tabs-section .auth-form');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                const target = document.getElementById(tab.dataset.tab + '-tab');
+                if (target) target.classList.add('active');
+            });
+        });
+
+        // Gallery thumb switch
+        const mainImg = document.querySelector('.product-gallery-main img');
+        const thumbs = document.querySelectorAll('.thumbnail');
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                thumbs.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                mainImg.src = thumb.src;
+            })
+        });
+    </script>
+</body>
+
+</html>

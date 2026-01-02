@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Register - E-Commerce Clothing Store</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        <h1>E-Store</h1>
+                    </a>
+                </div>
+                <nav>
+                    <ul class="menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </header>
+
+    <main class="auth-page">
+        <div class="container">
+            <div class="auth-card">
+                <div class="auth-tabs">
+                    <button class="tab active" data-tab="login">Login</button>
+                    <button class="tab" data-tab="register">Register</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="login-tab" class="auth-form active" action="dashboard.html">
+                    <!-- Linking to dashboard for demo -->
+                    <div class="form-group">
+                        <label for="login-email">Username or email address *</label>
+                        <input type="email" id="login-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password *</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 0.9rem;">
+                        <label
+                            style="display: flex; align-items: center; gap: 8px; margin: 0; text-transform: none; font-weight: 400;">
+                            <input type="checkbox" style="width: auto; margin: 0;"> Remember me
+                        </label>
+                        <a href="#" style="color: var(--accent-color);">Lost your password?</a>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Log In</button>
+                </form>
+
+                <!-- Register Form -->
+                <form id="register-tab" class="auth-form">
+                    <div class="form-group">
+                        <label for="reg-email">Email address *</label>
+                        <input type="email" id="reg-email" required>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px;">A password will be
+                        sent to your email address.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 25px;">Your personal data
+                        will be used to support your experience throughout this website, to manage access to your
+                        account, and for other purposes described in our <a href="#"
+                            style="color: var(--accent-color);">privacy policy</a>.</p>
+                    <button type="button" class="cta-button" style="width: 100%;">Register</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="hamburger-menu-overlay"></div>
+
+    <div class="hamburger-menu">
+        <div class="menu-header">
+            <h2>Menu</h2>
+            <i class="fas fa-times close-icon"></i>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

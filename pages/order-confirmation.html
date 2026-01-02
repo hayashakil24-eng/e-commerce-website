@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed | E-Store</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="checkout-body">
+
+    <!-- Header (Minimal) -->
+    <header class="checkout-header">
+        <div class="container">
+            <div class="checkout-logo">
+                <a href="../index.html">E-Store</a>
+            </div>
+            <div class="header-actions" style="font-size: 0.9rem;">
+                <a href="#" onclick="window.print()" class="print-link"><i class="fas fa-print"></i> Print Receipt</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="confirmation-main">
+        <div class="container">
+
+            <!-- 1. Success Message Section -->
+            <div class="success-banner">
+                <div class="success-icon">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h1>Order Confirmed!</h1>
+                <p class="subtitle">Thank you for your purchase. We've sent a confirmation email to <span
+                        style="font-weight: 600; color: #333;">customer@example.com</span></p>
+
+                <div class="order-ref">
+                    <span>Order #123456</span>
+                    <i class="far fa-copy copy-icon" title="Copy Order ID" onclick="copyOrderNumber('123456')"></i>
+                    <span id="copy-feedback"
+                        style="font-size: 0.75rem; color: #28a745; display: none; margin-left: 10px;">Copied!</span>
+                </div>
+
+                <p class="delivery-estimate">
+                    <i class="fas fa-truck" style="margin-right: 8px;"></i> Estimated delivery: <strong>Jan 08,
+                        2026</strong>
+                </p>
+            </div>
+
+            <!-- 5. What's Next Tracker (Placed here for visibility) -->
+            <div class="tracker-section">
+                <div class="tracker-steps">
+                    <div class="tracker-step completed">
+                        <div class="dot"><i class="fas fa-check"></i></div>
+                        <span>Confirmed</span>
+                    </div>
+                    <div class="tracker-step active">
+                        <div class="dot"></div>
+                        <span>Processing</span>
+                    </div>
+                    <div class="tracker-step">
+                        <div class="dot"></div>
+                        <span>Shipped</span>
+                    </div>
+                    <div class="tracker-step">
+                        <div class="dot"></div>
+                        <span>Delivered</span>
+                    </div>
+                </div>
+                <p class="tracker-note">We'll send you shipping updates via email</p>
+            </div>
+
+            <!-- Single Unified Container -->
+            <div class="confirmation-single-container" style="max-width: 800px; margin: 0 auto; padding-bottom: 60px;">
+
+                <div class="conf-card" style="padding: 40px;">
+
+                    <!-- Order Summary Section -->
+                    <h3
+                        style="margin-bottom: 25px; display: flex; justify-content: space-between; align-items: center;">
+                        Order Summary
+                        <a href="#" class="download-link" style="margin: 0; font-size: 0.9rem;"><i
+                                class="fas fa-download"></i> Download Invoice</a>
+                    </h3>
+
+                    <div class="summary-list">
+                        <div class="summary-item-row">
+                            <img src="../img/women jackets.jpg" alt="Product">
+                            <div class="item-meta">
+                                <div class="item-title">Women Jacket</div>
+                                <div class="item-specs">Size: M | Color: Black | Qty: 1</div>
+                                <div class="item-price">$220.00</div>
+                            </div>
+                        </div>
+                        <div class="summary-item-row">
+                            <img src="../img/men jeans.jpg" alt="Product">
+                            <div class="item-meta">
+                                <div class="item-title">Men Jeans</div>
+                                <div class="item-specs">Size: 32 | Color: Blue | Qty: 1</div>
+                                <div class="item-price">$160.00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summary-totals"
+                        style="background: transparent; padding: 0; margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px;">
+                        <div class="total-row">
+                            <span>Subtotal</span>
+                            <span>$380.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Shipping</span>
+                            <span>$10.00</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Tax</span>
+                            <span>$30.40</span>
+                        </div>
+                        <div class="total-row grand-total"
+                            style="font-size: 1.4rem; margin-top: 15px; border-top: none;">
+                            <span>Total</span>
+                            <span>$420.40</span>
+                        </div>
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+                    <!-- Details Section (Delivery & Payment) -->
+                    <div class="details-row" style="display: flex; flex-wrap: wrap; gap: 40px;">
+
+                        <!-- Delivery Address -->
+                        <div class="detail-col" style="flex: 1; min-width: 250px;">
+                            <h4 style="font-size: 1rem; margin-bottom: 15px; color: #333;"><i class="far fa-map"
+                                    style="margin-right: 8px; color: #888;"></i> Delivery Address</h4>
+                            <div class="info-content">
+                                <strong>John Doe</strong>
+                                <p>123 Fashion Street, Apt 4B<br>New York, NY 10001<br>United States</p>
+                                <p style="margin-top: 5px; font-size: 0.9rem; color: #666;">+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method (No Separate Container) -->
+                        <div class="detail-col" style="flex: 1; min-width: 250px;">
+                            <h4 style="font-size: 1rem; margin-bottom: 15px; color: #333;"><i class="far fa-credit-card"
+                                    style="margin-right: 8px; color: #888;"></i> Payment Method</h4>
+                            <div class="info-content">
+                                <p class="payment-line" style="margin-bottom: 8px;">
+                                    <i class="fab fa-cc-visa" style="font-size: 1.2rem; color: #1A1F71;"></i>
+                                    <span>Visa ending in 4242</span>
+                                </p>
+                                <p class="payment-status"><span class="badge-success">Paid</span></p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+                    <!-- CTAs -->
+                    <div class="cta-actions"
+                        style="margin-bottom: 30px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                        <a href="order-tracking.html" class="primary-btn" style="min-width: 200px;">Track Your Order</a>
+                        <a href="../index.html" class="secondary-btn" style="min-width: 200px;">Continue Shopping</a>
+                    </div>
+
+                    <!-- Support Links -->
+                    <div class="support-footer" style="border: none; padding: 0; margin: 0; text-align: center;">
+                        <p style="margin-bottom: 10px;">Need help? <a href="contact.html"
+                                style="font-weight: 500;">Contact Support</a></p>
+                        <div class="footer-links-inline">
+                            <a href="#">Returns Policy</a>
+                            <span class="sep">|</span>
+                            <a href="#">FAQs</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h2>E-Store</h2>
+                    <p>Your destination for stylish and affordable clothing. We bring you the latest trends with quality
+                        you can trust.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> support@estore.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fashion Blvd, NY, USA</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 E-Store. All rights reserved.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyOrderNumber(orderId) {
+            navigator.clipboard.writeText(orderId).then(() => {
+                const feedback = document.getElementById('copy-feedback');
+                feedback.style.display = 'inline';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 2000);
+            });
+        }
+
+        // Simple scale-in animation on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const icon = document.querySelector('.success-icon');
+            if (icon) {
+                icon.style.opacity = '0';
+                icon.style.transform = 'scale(0.5)';
+                setTimeout(() => {
+                    icon.style.transition = 'all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+                    icon.style.opacity = '1';
+                    icon.style.transform = 'scale(1)';
+                }, 100);
+            }
+
+            // --- DYNAMIC ORDER SUMMARY LOGIC ---
+            // 1. Fetch Cart Data
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            // If empty (e.g. direct access), show empty message or redirect?
+            // For now, let's just display what we have. If completely empty, maybe hide summary.
+            const summaryList = document.querySelector('.summary-list');
+
+            if (cartItems.length > 0 && summaryList) {
+                summaryList.innerHTML = '';
+                let subtotal = 0;
+
+                cartItems.forEach(item => {
+                    // Create HTML
+                    summaryList.innerHTML += `
+                        <div class="summary-item-row">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="item-meta">
+                                <div class="item-title">${item.name}</div>
+                                <div class="item-specs">Size: ${item.size} | Color: ${item.color} | Qty: ${item.qty}</div>
+                                <div class="item-price">$${(item.price * item.qty).toFixed(2)}</div>
+                            </div>
+                        </div>
+                    `;
+                    subtotal += item.price * item.qty;
+                });
+
+                // Totals Calculation
+                // Assuming standard shipping $10 if not free? Matching checkout logic (simplified)
+                // Let's assume standard $10 for consistency with the example snippet, or $0 if > specific amount.
+                // The user snippet used: const shipping = 10;
+                const shipping = 10.00;
+                const tax = subtotal * 0.08; // 8% tax
+                const total = subtotal + shipping + tax;
+
+                // Update DOM Elements
+                const totalRows = document.querySelectorAll('.summary-totals .total-row');
+                if (totalRows.length >= 4) {
+                    // Subtotal
+                    totalRows[0].lastElementChild.textContent = `$${subtotal.toFixed(2)}`;
+                    // Shipping
+                    totalRows[1].lastElementChild.textContent = `$${shipping.toFixed(2)}`;
+                    // Tax
+                    totalRows[2].lastElementChild.textContent = `$${tax.toFixed(2)}`;
+                    // Grand Total
+                    document.querySelector('.grand-total span:last-child').textContent = `$${total.toFixed(2)}`;
+                }
+
+                // 2. Clear Cart AFTER Rendering
+                // This ensures if they refresh, it's gone (standard behavior)
+                // OR we can keep it for a session. Standard is to clear it.
+                localStorage.removeItem('cartItems');
+
+                // Also update global car count to 0 in UI if main.js runs
+                const globalCount = document.querySelector('.cart-count');
+                if (globalCount) globalCount.textContent = '0';
+
+            } else {
+                if (summaryList) summaryList.innerHTML = '<p style="text-align:center; padding:20px; color:#999;">No order details found.</p>';
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - E-Commerce Clothing Store</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Header (Consistent) -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        <h1 style="font-weight: 700; letter-spacing: -1px;">E-STORE</h1>
+                    </a>
+                </div>
+                <!-- Desktop Nav -->
+                <nav>
+                    <ul class="menu">
+                        <li><a href="../index.html">HOME</a></li>
+                        <li><a href="shop.html">SHOP</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <!-- Icons -->
+                <div class="nav-icons">
+                    <i class="fas fa-search search-icon"></i>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <a href="login.html"><i class="fas fa-user user-icon"></i></a>
+                    <i class="fas fa-bars hamburger-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="hamburger-menu-overlay"></div>
+
+        <div class="hamburger-menu">
+            <div class="menu-header">
+                <h2>MENU</h2>
+                <i class="fas fa-times close-icon"></i>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="dashboard.html">My Account</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Tracking Content -->
+    <main class="tracking-main" style="min-height: 80vh; padding: 60px 0;">
+        <div class="container" style="max-width: 600px;">
+
+            <!-- Heading -->
+            <div class="page-header" style="text-align: center; margin-bottom: 50px;">
+                <h2
+                    style="font-size: 2.5rem; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 10px; text-transform: uppercase;">
+                    Track Your Order</h2>
+                <p style="color: #666; font-size: 0.95rem;">Enter your order details below to check the status.</p>
+            </div>
+
+            <!-- Tracking Form -->
+            <form id="tracking-form" onsubmit="event.preventDefault(); simulateTracking();"
+                style="margin-bottom: 60px;">
+                <div class="form-group" style="margin-bottom: 25px;">
+                    <label for="order-id"
+                        style="display: block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px;">Order
+                        ID</label>
+                    <input type="text" id="order-id" placeholder="e.g. 123456789" required
+                        style="width: 100%; padding: 16px; border: 1px solid #e5e5e5; font-size: 1rem; outline: none; transition: border-color 0.3s; background: #fafafa;">
+                </div>
+                <div class="form-group" style="margin-bottom: 35px;">
+                    <label for="billing-email"
+                        style="display: block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 1px;">Billing
+                        Email</label>
+                    <input type="email" id="billing-email" placeholder="email@example.com" required
+                        style="width: 100%; padding: 16px; border: 1px solid #e5e5e5; font-size: 1rem; outline: none; transition: border-color 0.3s; background: #fafafa;">
+                </div>
+                <button type="submit" class="track-btn"
+                    style="width: 100%; background: #000; color: #fff; border: none; padding: 18px; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: opacity 0.3s;">
+                    Track Order
+                </button>
+            </form>
+
+            <!-- Result Container (Hidden by default) -->
+            <div id="tracking-result" style="display: none; opacity: 0; transition: opacity 0.5s ease;">
+
+                <div class="result-card" style="border: 1px solid #eee; padding: 30px; background: #fff;">
+
+                    <!-- Order Header -->
+                    <div class="result-header"
+                        style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; flex-wrap: wrap; gap: 20px;">
+                        <div>
+                            <span
+                                style="display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px;">Order
+                                Number</span>
+                            <strong style="font-size: 1.2rem; display: block; margin-top: 5px;">#ORD-99281</strong>
+                        </div>
+                        <div style="text-align: right;">
+                            <span
+                                style="display: block; font-size: 0.8rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px;">Estimated
+                                Delivery</span>
+                            <strong style="font-size: 1.2rem; display: block; margin-top: 5px;">Monday, Jan 12</strong>
+                        </div>
+                    </div>
+
+                    <!-- Progress Bar -->
+                    <div class="status-tracker">
+                        <!-- Step 1 -->
+                        <div class="step completed"
+                            style="display: flex; gap: 20px; margin-bottom: 30px; position: relative;">
+                            <div class="step-indicator"
+                                style="display: flex; flex-direction: column; align-items: center;">
+                                <div class="dot"
+                                    style="width: 12px; height: 12px; background: #000; border-radius: 50%;"></div>
+                                <div class="line"
+                                    style="width: 2px; height: 100%; background: #000; flex: 1; margin-top: 5px; min-height: 40px;">
+                                </div>
+                            </div>
+                            <div class="step-content" style="padding-bottom: 10px;">
+                                <h4 style="font-size: 1rem; font-weight: 600; margin: 0 0 5px;">Order Placed</h4>
+                                <p style="font-size: 0.85rem; color: #666; margin: 0;">We have received your order.</p>
+                                <span style="font-size: 0.75rem; color: #999; margin-top: 5px; display: block;">Jan 08,
+                                    10:30 AM</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="step completed"
+                            style="display: flex; gap: 20px; margin-bottom: 30px; position: relative;">
+                            <div class="step-indicator"
+                                style="display: flex; flex-direction: column; align-items: center;">
+                                <div class="dot"
+                                    style="width: 12px; height: 12px; background: #000; border-radius: 50%;"></div>
+                                <div class="line"
+                                    style="width: 2px; height: 100%; background: #000; flex: 1; margin-top: 5px; min-height: 40px;">
+                                </div>
+                            </div>
+                            <div class="step-content" style="padding-bottom: 10px;">
+                                <h4 style="font-size: 1rem; font-weight: 600; margin: 0 0 5px;">Processed</h4>
+                                <p style="font-size: 0.85rem; color: #666; margin: 0;">Your order has been processed and
+                                    packed.</p>
+                                <span style="font-size: 0.75rem; color: #999; margin-top: 5px; display: block;">Jan 09,
+                                    02:15 PM</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 (Active) -->
+                        <div class="step active"
+                            style="display: flex; gap: 20px; margin-bottom: 30px; position: relative;">
+                            <div class="step-indicator"
+                                style="display: flex; flex-direction: column; align-items: center;">
+                                <div class="dot"
+                                    style="width: 16px; height: 16px; background: #fff; border: 4px solid #000; border-radius: 50%; box-sizing: border-box;">
+                                </div>
+                                <div class="line"
+                                    style="width: 2px; height: 100%; background: #eee; flex: 1; margin-top: 5px; min-height: 40px;">
+                                </div>
+                            </div>
+                            <div class="step-content" style="padding-bottom: 10px;">
+                                <h4 style="font-size: 1rem; font-weight: 600; margin: 0 0 5px;">In Transit</h4>
+                                <p style="font-size: 0.85rem; color: #666; margin: 0;">Arrived at local distribution
+                                    center.</p>
+                                <span
+                                    style="font-size: 0.75rem; color: #000; font-weight: 600; margin-top: 5px; display: block;">Today,
+                                    08:45 AM</span>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="step" style="display: flex; gap: 20px; position: relative;">
+                            <div class="step-indicator"
+                                style="display: flex; flex-direction: column; align-items: center;">
+                                <div class="dot"
+                                    style="width: 12px; height: 12px; background: #eee; border-radius: 50%;"></div>
+                            </div>
+                            <div class="step-content" style="padding-bottom: 10px;">
+                                <h4 style="font-size: 1rem; font-weight: 500; color: #999; margin: 0 0 5px;">Delivered
+                                </h4>
+                                <p style="font-size: 0.85rem; color: #ccc; margin: 0;">Expected delivery soon.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Simplified for focus) -->
+    <footer style="background: #f9f9f9; padding: 40px 0; border-top: 1px solid #eee; text-align: center;">
+        <div class="container">
+            <p style="font-size: 0.85rem; color: #888;">&copy; 2025 E-Store. All rights reserved.</p>
+            <div style="margin-top: 15px;">
+                <a href="#" style="color: #666; font-size: 0.8rem; margin: 0 10px;">Privacy Policy</a>
+                <a href="#" style="color: #666; font-size: 0.8rem; margin: 0 10px;">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function simulateTracking() {
+            const btn = document.querySelector('.track-btn');
+            const originalText = btn.textContent;
+
+            // Loading State
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Checking...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            // Simulate API delay
+            setTimeout(() => {
+                // Reset Button
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                btn.style.opacity = '1';
+
+                // Show Result with Fade In
+                const result = document.getElementById('tracking-result');
+                result.style.display = 'block';
+
+                // Trigger reflow
+                void result.offsetWidth;
+
+                result.style.opacity = '1';
+
+                // Smooth scroll to result
+                result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 1500);
+        }
+
+        // Add Input Focus Effects
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.style.borderColor = '#000';
+                input.style.background = '#fff';
+            });
+            input.addEventListener('blur', () => {
+                if (input.value === '') {
+                    input.style.borderColor = '#e5e5e5';
+                    input.style.background = '#fafafa';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

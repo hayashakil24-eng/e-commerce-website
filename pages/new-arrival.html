@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals - E-Store Annual Collection</title>
+    <!-- Common Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- Page Specific Styles -->
+    <link rel="stylesheet" href="../css/new-arrivals.css">
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="new-arrivals-page">
+
+    <!-- Header (Same as Index) -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../index.html">
+                        <h1>E-Store</h1>
+                    </a>
+                </div>
+                <nav>
+                    <ul class="menu">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="new-arrival.html" class="active">New Arrivals</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="nav-icons">
+                    <i class="fas fa-search search-icon"></i>
+                    <a href="cart.html" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <a href="dashboard.html"><i class="fas fa-user user-icon"></i></a>
+                    <i class="fas fa-bars hamburger-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="hamburger-menu-overlay"></div>
+
+        <div class="hamburger-menu">
+            <div class="menu-header">
+                <h2>Menu</h2>
+                <i class="fas fa-times close-icon"></i>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="new-arrival.html">New Arrivals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="na-hero">
+            <h1>New Arrivals</h1>
+            <p>Spring / Summer Collection 2026</p>
+        </section>
+
+        <!-- Main Shop Layout -->
+        <section class="shop-content">
+            <div class="container">
+                <div class="shop-layout">
+                    <!-- Mobile Filter Toggle (Same as Shop) -->
+                    <button class="filter-toggle-btn" id="toggleFilterBtn">
+                        <i class="fas fa-filter"></i> Filter
+                    </button>
+
+                    <!-- Sidebar Filters (Matched to Shop Page Style) -->
+                    <aside class="sidebar shop-sidebar" id="filterSidebar">
+                        <div class="filters-header">
+                            <h3>Filters</h3>
+                            <button class="close-filters" id="closeSidebarMobile"><i class="fas fa-times"></i></button>
+                        </div>
+
+                        <div class="filters-content">
+                            <!-- Categories (Link List Style) -->
+                            <div class="filter-group">
+                                <h4>Categories</h4>
+                                <ul> <!-- Changed from ul.category-filter-list to match shop.html -->
+                                    <li><a href="#" data-category="women">Women <span>(50)</span></a></li>
+                                    <li><a href="#" data-category="men">Men <span>(40)</span></a></li>
+                                    <li><a href="#" data-category="kids">Kids <span>(20)</span></a></li>
+                                    <li><a href="#" data-category="accessories">Accessories <span>(15)</span></a></li>
+                                </ul>
+                            </div>
+
+                            <!-- Price Range (Slider Style) -->
+                            <div class="filter-group">
+                                <h4>Price Range</h4>
+                                <input type="range" min="0" max="1000" value="1000" id="priceRange"
+                                    style="width: 100%; margin-bottom: 10px;">
+                                <div
+                                    style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 500;">
+                                    <span>$0</span>
+                                    <span id="priceValue">$1000</span>
+                                </div>
+                            </div>
+
+                            <!-- Size -->
+                            <div class="filter-group">
+                                <h4>Size</h4>
+                                <div class="size-selector" style="display: flex; flex-wrap: wrap; gap: 5px;">
+                                    <button class="size-btn">S</button>
+                                    <button class="size-btn">M</button>
+                                    <button class="size-btn">L</button>
+                                    <button class="size-btn">XL</button>
+                                </div>
+                            </div>
+
+                            <!-- Color -->
+                            <div class="filter-group">
+                                <h4>Color</h4>
+                                <div class="color-options" id="colorFilters"
+                                    style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                    <span class="color-option" data-color="black" title="Black"
+                                        style="background-color: #1a1a1a;"></span>
+                                    <span class="color-option" data-color="brown" title="Brown"
+                                        style="background-color: #8b7355;"></span>
+                                    <span class="color-option" data-color="accent" title="Accent"
+                                        style="background-color: #d4a574;"></span>
+                                    <span class="color-option" data-color="white" title="White"
+                                        style="background-color: #f5f5f5; border: 1px solid #ddd;"></span>
+                                    <span class="color-option" data-color="blue" title="Blue"
+                                        style="background-color: #1e3a8a;"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filters-footer">
+                            <button class="btn btn-sm btn-secondary" style="width: 100%; margin-bottom: 15px;"
+                                id="applyFiltersBtn">Apply Filters</button>
+                            <button class="btn btn-sm btn-outline" style="width: 100%;" id="clearFiltersBtn">Clear
+                                All</button>
+                        </div>
+                    </aside>
+
+                    <!-- Product Section -->
+                    <section class="products-section">
+                        <div class="shop-header">
+                            <div class="header-top">
+                                <!-- Reusing 'active-filters' container logic here or above -->
+                                <p class="result-count">Showing New Arrivals</p>
+                                <div class="product-controls">
+                                    <select id="sortSelect" class="sort-select">
+                                        <option value="newest">Sort by: Newest</option>
+                                        <option value="price-low">Price: Low to High</option>
+                                        <option value="price-high">Price: High to Low</option>
+                                        <option value="name">Name: A-Z</option>
+                                    </select>
+                                    <div class="view-options">
+                                        <i class="fas fa-th-large active" data-col="3"></i>
+                                        <i class="fas fa-th" data-col="4"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Active Filters Display -->
+                            <div class="active-filters" id="activeFilters"></div>
+                        </div>
+
+                        <div id="productGrid" class="product-grid" style="grid-template-columns: repeat(3, 1fr);">
+                            <!-- Products will be injected here via JS -->
+                            <div class="skeleton" style="height:400px; background:#f0f0f0;"></div>
+                            <div class="skeleton" style="height:400px; background:#f0f0f0;"></div>
+                            <div class="skeleton" style="height:400px; background:#f0f0f0;"></div>
+                        </div>
+
+                        <div class="load-more-container" id="loadMoreContainer"
+                            style="margin-top: 40px; text-align: center;">
+                            <button class="load-more-btn"
+                                style="border: 1px solid #000; background: transparent; padding: 10px 30px; text-transform: uppercase; cursor: pointer;">Load
+                                More</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h2>E-Store</h2>
+                    <p>Elevating your style with timeless pieces.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="new-arrival.html">New Arrivals</a></li>
+                        <li><a href="shop.html">Women</a></li>
+                        <li><a href="shop.html">Men</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="contact.html">Customer Service</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Shipping</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 E-Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Main JS for cart functionality -->
+    <script src="../js/main.js"></script>
+    <!-- Page Specific JS -->
+    <script src="../js/new-arrivals.js"></script>
+</body>
+
+</html>
