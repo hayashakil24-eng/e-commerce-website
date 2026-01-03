@@ -135,9 +135,59 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Initialize Font Awesome (replace with your actual kit ID or use CDN)
-    // Ensure you have linked Font Awesome correctly in your HTML
     // Example: <script src="https://kit.fontawesome.com/YOUR_KIT_ID.js" crossorigin="anonymous"></script>
-    // If using the CDN, this JS part might not be necessary for basic icon rendering.
+
+    // --- PRODUCT DETAIL PAGE LOGIC (Dynamic Population) ---
+    function loadProductDetail() {
+        // Check if we are on the product detail page
+        const productDetailContainer = document.querySelector('.product-detail-container');
+        if (!productDetailContainer) return;
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = parseInt(urlParams.get('id'));
+
+        if (productId) {
+            const product = coreProducts.find(p => p.id === productId);
+
+            if (product) {
+                // Update Page Title
+                document.title = `${product.name} - E-Store`;
+
+                // Update Info
+                const nameEl = document.querySelector('.product-detail-info h1');
+                const priceEl = document.querySelector('.product-detail-info .product-price');
+                const breadcrumbName = document.querySelector('.breadcrumbs ul li:last-child');
+
+                if (nameEl) nameEl.textContent = product.name;
+                if (priceEl) priceEl.innerHTML = `$${product.price}.00`;
+                if (breadcrumbName) breadcrumbName.textContent = product.name;
+
+                // Update Images
+                const mainImg = document.querySelector('.product-gallery-main img');
+                const thumbnails = document.querySelectorAll('.product-thumbnails img');
+
+                if (mainImg) mainImg.src = product.image;
+                if (thumbnails) {
+                    thumbnails.forEach(thumb => {
+                        thumb.src = product.image; // Using same image for thumbs as we only have 1 per product in data
+                    });
+                }
+
+                // Update Add to Cart Button Data ID
+                const addToCartBtn = document.querySelector('.product-detail-info .btn-add-to-cart');
+                if (addToCartBtn) {
+                    addToCartBtn.dataset.id = product.id;
+                    // Add listener if not already covered by global delegation (Global delegation covers .btn-add-to-cart)
+                }
+
+            } else {
+                console.error('Product not found for ID:', productId);
+            }
+        }
+    }
+
+    // specific call
+    loadProductDetail();
 });
 
 // --- GLOBAL CART FUNCTIONALITY ---
@@ -147,7 +197,7 @@ const coreProducts = [
     { id: 1, name: "Silk Satin Blouse", price: 89, badge: "NEW", category: "women", image: "../img/shop_blouse.png", sizes: ["S", "M", "L"], colors: ["beige"] },
     { id: 2, name: "Essential Cotton Tee", price: 25, badge: null, category: "women", image: "../img/shop_tshirt.png", sizes: ["XS", "S", "M", "L", "XL"], colors: ["white"] },
     { id: 3, name: "Chunky Knit Cardigan", price: 65, badge: "SALE", category: "women", image: "../img/shop_sweater.png", sizes: ["S", "M"], colors: ["pink"] },
-    { id: 4, name: "Floral Chiffon Midi", price: 110, badge: "HOT", category: "women", image: "../img/shop_dress_floral.png", sizes: ["S", "M", "L"], colors: ["blue", "multi"] },
+    { id: 4, name: "Floral Chiffon maxi", price: 110, badge: "HOT", category: "women", image: "../img/shop_dress_floral.png", sizes: ["S", "M", "L"], colors: ["blue", "multi"] },
     { id: 5, name: "Linen Co-ord Set", price: 130, badge: "NEW", category: "women", image: "../img/shop_coord_set.png", sizes: ["M", "L"], colors: ["brown", "orange"] },
     { id: 6, name: "Classic Trench Coat", price: 299, badge: null, category: "women", image: "../img/shop_trench.png", sizes: ["S", "M", "L", "XL"], colors: ["beige"] },
     { id: 7, name: "Oversized Wool Blazer", price: 180, badge: null, category: "women", image: "../img/shop_blazer.png", sizes: ["S", "M", "L"], colors: ["black"] },
@@ -483,13 +533,15 @@ if (shopGrid && paginationContainer) {
 
                     productCard.innerHTML = `
                             <div class="product-image-container">
-                                <img src="${product.image}" alt="${product.name}" loading="lazy">
+                                <a href="product-detail.html?id=${product.id}">
+                                    <img src="${product.image}" alt="${product.name}" loading="lazy">
+                                </a>
                                 ${badgeHtml}
                                 <div class="quick-view-icon" title="Quick View"><i class="fas fa-eye"></i></div>
                                 <div class="add-to-wishlist" title="Add to Wishlist"><i class="far fa-heart"></i></div>
                             </div>
                             <div class="product-info">
-                                <h3>${product.name}</h3>
+                                <h3><a href="product-detail.html?id=${product.id}" style="text-decoration: none; color: inherit;">${product.name}</a></h3>
                                 <p class="price">$${product.price}.00</p>
                                 <button class="btn-add-to-cart" data-id="${product.id}">Add to Cart</button>
                             </div>
